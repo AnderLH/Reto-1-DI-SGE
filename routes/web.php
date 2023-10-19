@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Http\Controllers\DepartamentController;
+Route::controller(DepartamentController::class)->group(function () {
+Route::get('/departaments', 'index')->name('departaments.index');
+Route::get('/departaments/{post}', 'show')->name('departaments.show');
+});
