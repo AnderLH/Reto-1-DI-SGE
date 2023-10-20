@@ -1,25 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Crear Departamento</div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('departamentos.store') }}">
-                        @csrf
-                        <div class="form-group">
-                            <label for="name">Nombre del Departamento</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
-                        </div>
-                        <!-- Puedes agregar más campos aquí si es necesario -->
+    <form class="mt-2" name="create_platform" action="{{route('departaments.store')}}" method="POST"
+        enctype="multipart/form-data"> @csrf <div class="form-group mb-3"> <label for="titulo"
+        class="form-label">Titulo</label> <input type="text" class="form-control" id="titulo" name="titulo" required />
+</div>
 
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<button type="submit" class="btn btn-primary" name="">Crear</button>
+</form>
 </div>
 @endsection

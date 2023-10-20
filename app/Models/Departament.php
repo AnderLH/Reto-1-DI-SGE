@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Departament extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 }

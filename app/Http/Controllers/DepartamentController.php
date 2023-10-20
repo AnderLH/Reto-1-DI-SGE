@@ -22,7 +22,7 @@ class DepartamentController extends Controller
      */
     public function create()
     {
-        return view('departamentos.create');
+        return view('departaments.create');
     }
 
     /**
@@ -30,7 +30,10 @@ class DepartamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $departament = new Departament();
+        $departament->name = $request->titulo;
+        $departament->save();
+        return redirect()->route('departaments.index');
     }
 
     /**
@@ -38,7 +41,7 @@ class DepartamentController extends Controller
      */
     public function show(Departament $departament)
     {
-        return view('departament.show',['departament'=>$departament]);
+        return view('departaments.show',['departament'=>$departament]);
     }
 
     /**
@@ -46,7 +49,7 @@ class DepartamentController extends Controller
      */
     public function edit(Departament $departament)
     {
-        //
+        return view('departaments.edit',['departament'=>$departament]);
     }
 
     /**
@@ -54,7 +57,9 @@ class DepartamentController extends Controller
      */
     public function update(Request $request, Departament $departament)
     {
-        //
+        $departament->name = $request->name;
+        $departament->save();
+        return redirect()->route('departaments.index');
     }
 
     /**
@@ -62,6 +67,7 @@ class DepartamentController extends Controller
      */
     public function destroy(Departament $departament)
     {
-        //
+        $departament->delete();
+        return redirect()->route('departaments.index');
     }
 }
