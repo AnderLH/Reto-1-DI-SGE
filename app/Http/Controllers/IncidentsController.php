@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Departament;
+use App\Models\Incidents;
 use Illuminate\Http\Request;
 
-class DepartamentController extends Controller
+class IncidentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $departament = Departament::orderBy('created_at')->get();
-        //dd($departament);
-        return view('departaments.index',['departaments' => $departament]);
+        //
     }
 
     /**
@@ -22,7 +20,7 @@ class DepartamentController extends Controller
      */
     public function create()
     {
-        return view('departamentos.create');
+        //
     }
 
     /**
@@ -36,15 +34,15 @@ class DepartamentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Departament $departament)
+    public function show(Incidents $incidents)
     {
-        return view('departament.show',['departament'=>$departament]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Departament $departament)
+    public function edit(Incidents $incidents)
     {
         //
     }
@@ -52,7 +50,7 @@ class DepartamentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Departament $departament)
+    public function update(Request $request, Incidents $incidents)
     {
         //
     }
@@ -60,7 +58,7 @@ class DepartamentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Departament $departament)
+    public function destroy(Incidents $incidents)
     {
         //
     }

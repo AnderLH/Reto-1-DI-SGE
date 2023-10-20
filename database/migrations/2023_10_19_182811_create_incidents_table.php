@@ -10,13 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('departaments', function (Blueprint $table) {
+    {/*
+        Schema::create('incidents', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->softDeletes();
+            $table->string('state');
+            $table->foreign('state')->references('status')->on('statues');	
+            $table->string('title');
+            $table->string('text');
+            $table->integer('minutes');
+            $table->integer('');
             $table->timestamps();
-        });
+        });*/
     }
 
     /**
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departaments');
+        Schema::dropIfExists('categories');
     }
 };

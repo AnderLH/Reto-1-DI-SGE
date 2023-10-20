@@ -15,8 +15,11 @@ class DepartamentSeeder extends Seeder
     public function run(): void
     {
         DB::table('departaments')->insert([
-            "name"=>"Departamento1",
-            "created_at"=>now(),
-            ]);
+            ["name"=>"Departamento1","created_at"=>now(),],
+            ["name"=>"Departamento2","created_at"=>now(),],
+            ["name"=>"Departamento3","created_at"=>now(),],
+            ["name"=>"Departamento4","created_at"=>now(),],
+            ["name"=>"Departamento5","created_at"=>now(),],
+        ]);
     }
 }
