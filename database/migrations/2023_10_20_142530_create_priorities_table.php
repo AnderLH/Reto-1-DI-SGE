@@ -14,7 +14,6 @@ return new class extends Migration
         /*
         Schema::create('priorities', function (Blueprint $table) {
             $table->id();
-            $table->foreign('incident_id')->references('id')->on('incidents');
             $table->string('priority');	
             $table->timestamps();
         });*/

@@ -1,7 +1,8 @@
     <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DepartamentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +18,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-use App\Http\Controllers\DepartamentController;
+Route::resources([
+    'departaments' => DepartamentController::class,
+]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*use App\Http\Controllers\DepartamentController;
 Route::controller(DepartamentController::class)->group(function () {
 Route::get('/departaments', 'index')->name('departaments.index');
-Route::get('/departaments/{post}', 'show')->name('departaments.show');
-});
+Route::get('/departaments/{departament}', 'show')->name('departaments.show');
+});*/
+
+
+Route::resources([
+    'categories' => CategoryController::class,
+]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
