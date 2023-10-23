@@ -14,29 +14,27 @@ use App\Http\Controllers\DepartamentController;
 |
 */
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resources([
-    'departaments' => DepartamentController::class,
-]);
+Route::middleware(['auth'])->group(function () {
+    Route::resources([
+        'departaments' => DepartamentController::class,
+        'categories' => CategoryController::class,
+    ]);
+});
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-/*use App\Http\Controllers\DepartamentController;
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/categories', 'index')->name('categories.index');
+    Route::get('/categories/{category}', 'show')->name('categories.show');
+})->withoutMiddleware([Auth::class]);
+/*
 Route::controller(DepartamentController::class)->group(function () {
-Route::get('/departaments', 'index')->name('departaments.index');
-Route::get('/departaments/{departament}', 'show')->name('departaments.show');
-});*/
-
-
-Route::resources([
-    'categories' => CategoryController::class,
-]);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/departaments', 'index')->name('departaments.index');
+    Route::get('/departaments/{departament}', 'show')->name('departaments.show');
+})->withoutMiddleware([Auth::class]);*/
