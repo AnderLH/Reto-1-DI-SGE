@@ -29,12 +29,12 @@ Route::middleware(['auth'])->group(function () {
     ]);
 });
 
+Route::controller(DepartamentController::class)->group(function () {
+    Route::get('/departaments', 'index')->name('departaments.index');
+    Route::get('/departaments/{departament}', 'show')->name('departaments.show');
+})->withoutMiddleware([Auth::class]);
+
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'index')->name('categories.index');
     Route::get('/categories/{category}', 'show')->name('categories.show');
 })->withoutMiddleware([Auth::class]);
-/*
-Route::controller(DepartamentController::class)->group(function () {
-    Route::get('/departaments', 'index')->name('departaments.index');
-    Route::get('/departaments/{departament}', 'show')->name('departaments.show');
-})->withoutMiddleware([Auth::class]);*/
