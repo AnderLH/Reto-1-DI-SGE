@@ -43,4 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function incidents()
+    {
+        return $this->hasMany(Incident::class, 'users');
+    }
+
+    public function departament()
+    {
+        return $this->belongsTo(Departament::class, 'departament_id', 'id');
+    }
 }
