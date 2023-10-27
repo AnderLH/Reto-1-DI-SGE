@@ -13,7 +13,6 @@ class DepartamentController extends Controller
     public function index()
     {
         $departament = Departament::orderBy('created_at')->get();
-        //dd($departament);
         return view('departaments.index',['departaments' => $departament]);
     }
 

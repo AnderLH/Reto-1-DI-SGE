@@ -44,8 +44,26 @@ class DataSeeder extends Seeder
             "email"=>"baichun@elorrieta.com",
             "email_verified_at"=> now(),
             "password"=>" ",
-            "departament_Id"=>"1",
+            "departament_id"=>"1",
             'created_at'=> now(),
+            
+        ]);
+
+        DB::table('incidents')->insert([
+            "title" => "incidencia1",
+            "text"=>"texto1",
+            "departament_id" => "1",
+            "status"=>"1",
+            "priority"=>"1",
+            "category"=>"1",
+            "minutes"=>"1",
+            'created_at'=> now(),
+        ]);
+
+        DB::table('coments') ->insert([
+            "incident_id"=>"1",
+            "coment"=>"comentario1",
+            "created_at"=> now(),
             
         ]);
     }

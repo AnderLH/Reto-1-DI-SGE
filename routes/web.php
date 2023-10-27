@@ -6,6 +6,7 @@ use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\PriorityController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\IncidentController;
+use App\Http\Controllers\ComentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,4 +59,9 @@ Route::controller(StatusController::class)->group(function () {
 Route::controller(IncidentController::class)->group(function () {
     Route::get('/incidents', 'index')->name('incidents.index');
     Route::get('/incidents/{incident}', 'show')->name('incidents.show');
+})->withoutMiddleware([Auth::class]);
+
+Route::controller(ComentsController::class)->group(function () {
+    Route::get('/coments', 'index')->name('coments.index');
+    Route::get('/coments/{coment}', 'show')->name('coments.show');
 })->withoutMiddleware([Auth::class]);

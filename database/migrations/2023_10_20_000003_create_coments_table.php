@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        /*
         Schema::create('coments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('incident_id');	
             $table->foreign('incident_id')->references('id')->on('incidents');
-
+            $table->string('coment');
+            $table->softDeletes();
             $table->timestamps();
-        });*/
+        });
     }
 
     /**

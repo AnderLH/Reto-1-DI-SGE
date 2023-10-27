@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Coments;
+use App\Models\Coment;
 use Illuminate\Http\Request;
 
 class ComentsController extends Controller
@@ -12,6 +12,8 @@ class ComentsController extends Controller
      */
     public function index()
     {
+        $coment = Coment::orderBy('created_at')->get();
+        return view('coments.index',['coments' => $coment]);
         //
     }
 
@@ -20,6 +22,7 @@ class ComentsController extends Controller
      */
     public function create()
     {
+        return view('coments.create');
         //
     }
 
@@ -28,38 +31,49 @@ class ComentsController extends Controller
      */
     public function store(Request $request)
     {
+        $coment = new Coment();
+        $coment->name = $request->name;
+        $coment->save();
+        return redirect()->route('coments.index');
         //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Coments $coments)
+    public function show(Coment $coment)
     {
+        return view('coments.show',['coment'=>$coment]);
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Coments $coments)
+    public function edit(Coment $coment)
     {
+        return view('coments.edit',['coment'=>$coment]);
         //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Coments $coments)
+    public function update(Request $request, Coment $coment)
     {
+        $coment->name = $request->name;
+        $coment->save();
+        return redirect()->route('coments.index');
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Coments $coments)
+    public function destroy(Coment $coment)
     {
+        $coment->delete();
+        return redirect()->route('coments.index');
         //
     }
 }
