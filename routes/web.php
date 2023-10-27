@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\PriorityController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\IncidentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
         'categories' => CategoryController::class,
         'priorities' => PriorityController::class,
         'statuses' => StatusController::class,
+        'incidents' => IncidentController::class,
     ]);
 });
 
@@ -51,4 +53,9 @@ Route::controller(PriorityController::class)->group(function () {
 Route::controller(StatusController::class)->group(function () {
     Route::get('/statuses', 'index')->name('statuses.index');
     Route::get('/statuses/{status}', 'show')->name('statuses.show');
+})->withoutMiddleware([Auth::class]);
+
+Route::controller(IncidentController::class)->group(function () {
+    Route::get('/incidents', 'index')->name('incidents.index');
+    Route::get('/incidents/{incident}', 'show')->name('incidents.show');
 })->withoutMiddleware([Auth::class]);

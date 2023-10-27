@@ -10,17 +10,23 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {/*
+    {
         Schema::create('incidents', function (Blueprint $table) {
             $table->id();
-            $table->string('state');
-            $table->foreign('state')->references('status')->on('statues');	
             $table->string('title');
             $table->string('text');
+            $table->unsignedBigInteger('departament_id');
+            $table->foreign('departament_id')->references('id')->on('departaments');
+            $table->unsignedBigInteger('status');
+            $table->foreign('status')->references('id')->on('statuses');
+            $table->unsignedBigInteger('priority');
+            $table->foreign('priority')->references('id')->on('priorities');	
+            $table->unsignedBigInteger('category');
+            $table->foreign('category')->references('id')->on('categories');		
             $table->integer('minutes');
-            $table->integer('');
-            $table->timestamps();
-        });*/
+            $table->softDeletes();
+            $table->timestamps(); 
+        });
     }
 
     /**
