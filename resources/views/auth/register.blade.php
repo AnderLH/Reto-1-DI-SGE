@@ -61,6 +61,18 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="department" class="col-md-4 col-form-label text-md-end">{{ __('Department') }}</label>
+                            <div class="col-md-6">
+                                <select id="department_id" class="form-select" name="departament_id" required>
+                                    <option value="" disabled selected>Select a department</option>
+                                    @foreach ($departaments as $departament)
+                                        <option value="{{ $departament->id }}">{{ $departament->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -68,6 +80,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

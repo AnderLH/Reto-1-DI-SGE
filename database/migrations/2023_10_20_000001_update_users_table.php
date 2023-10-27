@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        /*
-        Schema::create('statuses', function (Blueprint $table) {
-            $table->id();	
-            $table->string('status');	
-            $table->timestamps();
-        });*/
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('departament_id')->constrained(
+                table: 'departaments', indexName: 'id'
+            );
+         });
     }
 
     /**
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('users');
     }
 };

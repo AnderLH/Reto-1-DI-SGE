@@ -1,8 +1,10 @@
-    <?php
+<?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartamentController;
+use App\Http\Controllers\PriorityController;
+use App\Http\Controllers\StatusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'departaments' => DepartamentController::class,
         'categories' => CategoryController::class,
+        'priorities' => PriorityController::class,
+        'statuses' => StatusController::class,
     ]);
 });
 
@@ -37,4 +41,14 @@ Route::controller(DepartamentController::class)->group(function () {
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'index')->name('categories.index');
     Route::get('/categories/{category}', 'show')->name('categories.show');
+})->withoutMiddleware([Auth::class]);
+
+Route::controller(PriorityController::class)->group(function () {
+    Route::get('/priorities', 'index')->name('priorities.index');
+    Route::get('/priorities/{priority}', 'show')->name('priorities.show');
+})->withoutMiddleware([Auth::class]);
+
+Route::controller(StatusController::class)->group(function () {
+    Route::get('/statuses', 'index')->name('statuses.index');
+    Route::get('/statuses/{status}', 'show')->name('statuses.show');
 })->withoutMiddleware([Auth::class]);
