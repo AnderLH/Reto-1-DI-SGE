@@ -38,8 +38,18 @@ class Incident extends Model
         
     }
 
-    public function comments(): HasMany
+    public function comments()
     {
         return $this->hasMany(Comment::class);
     }
+    
+    public static function boot() {
+        parent::boot();
+    
+        // Elimina los comentarios asociados cuando se elimina la incidencia
+        static::deleting(function($incident) {
+            $incident->comments()->delete();
+        });
+    }
+    
 }
