@@ -14,3 +14,126 @@
 [data-bs-theme='dark'] .navbar.bg-white {
     --bs-bg-opacity: 0 !important;
 }
+
+#incident-title {
+    color: #007bff; /* Color del texto del enlace */
+    text-decoration: none; /* Quitar la subrayado predeterminada del enlace */
+    font-weight: bold; /* Establecer el peso de la fuente a negrita */
+    font-size: 18px; /* Tamaño de fuente más grande */
+}
+
+#incident-title:hover {
+    text-decoration: underline; /* Añadir subrayado al pasar el ratón sobre el enlace */
+}
+
+/* Estilo para el título del incidente */
+#incident-title {
+    color: #007bff; /* Color del texto del enlace */
+    text-decoration: none; /* Quitar la subrayado predeterminada del enlace */
+    font-weight: bold; /* Establecer el peso de la fuente a negrita */
+    font-size: 18px; /* Tamaño de fuente más grande */
+    transition: color 0.3s ease; /* Efecto de transición en el cambio de color */
+}
+
+#incident-title:hover {
+    color: #0056b3; /* Cambiar el color al pasar el ratón sobre el enlace */
+}
+
+/* Estilo para los botones Crear, Editar y Eliminar */
+.btn-success, .btn-warning, .btn-danger {
+    margin-right: 10px; /* Margen derecho para separar los botones */
+}
+
+/* Estilo para la lista de incidentes */
+.list-group {
+    margin-top: 5px; /* Margen superior para separar la lista del contenido superior */
+}
+
+/* Estilo para los elementos de la lista */
+.list-group-item {
+    margin-top: 10px; /* Margen superior para separar los elementos de la lista */
+    padding: 15px; /* Espaciado interno para mejorar la legibilidad */
+    border: 2px solid #dee2e6; /* Borde del elemento de la lista */
+    border-width: 3px;
+    border-radius: 8px; /* Bordes redondeados para suavizar la apariencia */
+}
+
+/* Estilo para el contenedor de cada    columna */
+.col-md-4 {
+    margin-bottom: 20px; /* Margen inferior para separar las columnas */
+}
+
+/* Estilos para el contenedor de list-group-item */
+.list-group-item-container {
+    border: 1px solid #dee2e6; /* Color del borde */
+    border-radius: 8px; /* Radio de borde */
+    padding: 5px; /* Espaciado interno */
+    margin-bottom: 10px;
+}
+
+/* Estilos para los list-group-item */
+.list-group-item {
+    border: 1px solid #dee2e6; /* Color del borde */
+    border-radius: 8px; /* Radio de borde */
+}
+.list-group-item:last-child {
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.list-group-item + .list-group-item {
+    border-top-width: 1px !important;
+}
+
+/* Estilo para los botones de tema en modo oscuro */
+.dropdown-item.dark-mode {
+    background-color: #343a40; /* Fondo del botón en modo oscuro */
+    color: #ffffff; /* Color del texto en modo oscuro */
+}
+
+
+/* Estilo para el contenedor principal */
+.container {
+    padding: 20px; /* Relleno interno del contenedor principal */
+}
+
+/* Estilo para el título principal */
+h1 {
+    color: #007bff; /* Color del título principal */
+}
+
+/* Estilos para centrar el contenido */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Estilo del botón principal */
+#btnSwitch {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff; 
+    width: auto;
+}
+
+/* Estilo del botón principal al pasar el ratón */
+#btnSwitch:hover {
+    background-color: #0056b3;
+    border: 1px solid #0056b3;
+}
+
+/* Estilo del botón principal al estar activo (presionado) */
+#btnSwitch:active {
+    background-color: #004080;
+    border: 1px solid #004080;
+}
+
+/* Estilo de los elementos del menú desplegable */
+.dropdown-menu {
+    background-color: #fff;
+}
+
+/* Estilo de los elementos del menú desplegable al pasar el ratón */
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
