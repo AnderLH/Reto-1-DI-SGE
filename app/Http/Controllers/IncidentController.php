@@ -110,6 +110,7 @@ class IncidentController extends Controller
      */
     public function destroy(Incident $incident)
     {
+        $incident->load('comments');
         $incident->delete();
         return redirect()->route('incidents.index');
     }

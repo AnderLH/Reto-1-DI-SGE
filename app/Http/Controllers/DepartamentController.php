@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Departament;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class DepartamentController extends Controller
@@ -66,7 +67,17 @@ class DepartamentController extends Controller
      */
     public function destroy(Departament $departament)
     {
-        $departament->delete();
-        return redirect()->route('departaments.index');
+        try {
+            // Verificar si hay incidencias asociadas al departamento
+            if ($departament->incidents()->exists()) {
+                return redirect()->route('departaments.index')->with('error', 'No se puede eliminar el departamento, tiene incidencias asociadas.');
+            }
+    
+            // Si no hay incidencias, proceder con la eliminación
+            $departament->delete();
+            return redirect()->route('departaments.index')->with('success', 'Departamento eliminado con éxito.');
+        } catch (QueryException $e) {
+            return redirect()->route('departaments.index')->with('error', 'Error al intentar eliminar el departamento.');
+        }
     }
 }
