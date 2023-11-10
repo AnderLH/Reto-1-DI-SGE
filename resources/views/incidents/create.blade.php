@@ -16,6 +16,18 @@
         </div>
 
         <div class="row mb-3">
+            <label for="priority" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
+            <div class="col-md-6">
+                <select id="status" class="form-select" name="status" required>
+                    <option value="" disabled selected>Select a status</option>
+                    @foreach ($statuses as $status)
+                        <option value="{{ $status->id }}">{{ $status->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
             <label for="priority" class="col-md-4 col-form-label text-md-end">{{ __('Priority') }}</label>
             <div class="col-md-6">
                 <select id="priority" class="form-select" name="priority" required>
@@ -44,7 +56,7 @@
             <input type="number" class="form-control" id="minutes" name="minutes" required />
         </div>
 
-<button type="submit" class="btn btn-primary" name="">Crear</button>
-</form>
+        <button type="submit" class="btn btn-primary" name="">Crear</button>
+    </form>
 </div>
 @endsection
