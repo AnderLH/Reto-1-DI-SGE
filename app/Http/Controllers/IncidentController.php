@@ -46,16 +46,12 @@ class IncidentController extends Controller
         $incident->text = $request->input('text');
         $incident->user_id = auth()->user()->id; // Asigna el ID del usuario actual
         $incident->departament_id = $user->departament->id;
-        $incident->status = "3";
-        $incident->priority = $request->input('priority');
-        $incident->category = $request->input('category');
+        $incident->status_id = $request->input('status');
+        $incident->priority_id = $request->input('priority');
+        $incident->category_id = $request->input('category');
         $incident->minutes = $request->input('minutes');
-
-        // Guardar la incidencia en la base de datos
-        //dd($incident);
+       
         $incident->save();
-
-        // Redirigir a la página de índice de incidencias o a donde desees
         return redirect()->route('incidents.index');
     }
 
@@ -64,7 +60,9 @@ class IncidentController extends Controller
      */
     public function show(Incident $incident)
     {
-        return view('incidents.show',['incident'=>$incident]);
+        $incident->load('status', 'priority', 'category');
+
+        return view('incidents.show', ['incident' => $incident]);
     }
 
     /**
@@ -72,7 +70,10 @@ class IncidentController extends Controller
      */
     public function edit(Incident $incident)
     {
-        return view('incidents.edit',['incident'=>$incident]);
+        $statuses = Status::orderBy('created_at')->get();
+        $priorities  = Priority::orderBy('created_at')->get();
+        $categories  = Category::orderBy('created_at')->get();
+        return view('incidents.edit', ['incident' => $incident, 'statuses' => $statuses, 'priorities' => $priorities, 'categories' => $categories]);
     }
 
     /**
@@ -80,8 +81,27 @@ class IncidentController extends Controller
      */
     public function update(Request $request, Incident $incident)
     {
-        $incident->title = $request->title;
+        // Validar los datos del formulario
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'text' => 'required|string',
+            'status' => 'required|string',
+            'priority' => 'required|string',
+            'category' => 'required|string',
+            'minutes' => 'required|integer',
+        ]);
+
+        // Actualizar los atributos del incidente
+        $incident->title = $validatedData['title'];
+        $incident->text = $validatedData['text'];
+        $incident->status_id = $validatedData['status'];
+        $incident->priority_id = $validatedData['priority'];
+        $incident->category_id = $validatedData['category'];
+        $incident->minutes = $validatedData['minutes'];
+
+        // Guardar el incidente actualizado en la base de datos
         $incident->save();
+
         return redirect()->route('incidents.index');
     }
 

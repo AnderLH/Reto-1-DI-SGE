@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Incident;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,9 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::orderBy('created_at')->get();
-        return view('categories.index',['categories' => $categories]);
+        $incidents = Incident::orderBy('created_at')->get();
+        return view('categories.index',['categories' => $categories, 'incidents' => $incidents]);
+        
     }
 
     /**

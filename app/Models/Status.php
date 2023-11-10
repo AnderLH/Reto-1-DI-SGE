@@ -11,9 +11,9 @@ class Status extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function incidents()
+    public function incidents(): HasMany
     {
-        return $this->hasMany(Incident::class, 'status');
+        return $this->hasMany(Incident::class);
     }
-
+    
 }

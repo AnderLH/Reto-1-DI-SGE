@@ -19,12 +19,12 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('departament_id');
             $table->foreign('departament_id')->references('id')->on('departaments');
-            $table->unsignedBigInteger('status');
-            $table->foreign('status')->references('id')->on('statuses');
-            $table->unsignedBigInteger('priority');
-            $table->foreign('priority')->references('id')->on('priorities');	
-            $table->unsignedBigInteger('category');
-            $table->foreign('category')->references('id')->on('categories');		
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('statuses');
+            $table->unsignedBigInteger('priority_id');
+            $table->foreign('priority_id')->references('id')->on('priorities');	
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');		
             $table->integer('minutes');
             $table->softDeletes();
             $table->timestamps(); 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('incidents');
     }
 };
