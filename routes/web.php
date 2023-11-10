@@ -6,7 +6,7 @@ use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\PriorityController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\IncidentController;
-use App\Http\Controllers\ComentsController;
+use App\Http\Controllers\CommentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         'priorities' => PriorityController::class,
         'statuses' => StatusController::class,
         'incidents' => IncidentController::class,
+        'comments' => CommentsController::class,
     ]);
 });
 
@@ -61,7 +62,7 @@ Route::controller(IncidentController::class)->group(function () {
     Route::get('/incidents/{incident}', 'show')->name('incidents.show');
 })->withoutMiddleware([Auth::class]);
 
-Route::controller(ComentsController::class)->group(function () {
-    Route::get('/coments', 'index')->name('coments.index');
-    Route::get('/coments/{coment}', 'show')->name('coments.show');
+Route::controller(CommentsController::class)->group(function () {
+    Route::get('/comments', 'index')->name('comments.index');
+    Route::get('/comments/{comment}', 'show')->name('comments.show');
 })->withoutMiddleware([Auth::class]);
