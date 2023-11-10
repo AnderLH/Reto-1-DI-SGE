@@ -16,12 +16,22 @@
                     <p class="text-muted">Escrito el {{ $category->created_at }}</p>
                     <h6>Últimas incidencias:</h6>
                     <ul class="list-group">
+                        
                         @forelse ($category->incidents->sortByDesc('created_at')->take(5) as $incident)
+                        @auth
+                        @if ($incident->departament_id == auth()->user()->departament_id)
                         <li class="list-group-item">
                             <h5><a href="{{ route('incidents.show', $incident) }}">{{ $incident->title }} - {{ $incident->created_at }}</a></h5>
                         </li>
+                        @endauth
+                        @else
+                        <li class="list-group-item">
+                            <h5><a href="{{ route('incidents.show', $incident) }}">{{ $incident->title }} - {{ $incident->created_at }}</a></h5>
+                        </li>
+                        @endif
                         @empty
                         <p>No hay incidencias disponibles.</p> <!-- Agregar este mensaje si no hay incidencias asociadas -->
+                        
                         @endforelse
                     </ul>
                 </div>

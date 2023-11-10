@@ -1,3 +1,16 @@
 #depart-styles h1{
     color: red;
 }
+
+.themed-container {
+    padding: .75rem;
+    margin-bottom: 1.5rem;
+    background-color: rgba(112.520718, 44.062154, 249.437846, .15);
+    border: 1px solid rgba(112.520718, 44.062154, 249.437846, .3);
+  }
+
+/* Anulación de la propiedad --bs-bg-opacity */
+[data-bs-theme='light'] .navbar.bg-white,
+[data-bs-theme='dark'] .navbar.bg-white {
+    --bs-bg-opacity: 0 !important;
+}
