@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Lista de Categorías</h1>
-
+    <h1  class="text-center"id="depart-styles">Lista de Categorías</h1>
     <ul class="list-group">
         @auth
         <a href="{{ route('categories.create') }}" class="btn btn-success" role="button">Crear nueva Categoria</a>
@@ -12,7 +11,7 @@
         <li class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h2 class="mb-0"><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></h2>
+                    <h2 class="mb-0"><a href="{{ route('categories.show', $category) }}" id="incident-title">{{ $category->name }}</a></h2>
                     <p class="text-muted">Escrito el {{ $category->created_at }}</p>
                     <h6>Últimas incidencias:</h6>
                     <ul class="list-group">
@@ -21,16 +20,16 @@
                         @auth
                         @if ($incident->departament_id == auth()->user()->departament_id)
                         <li class="list-group-item">
-                            <h5><a href="{{ route('incidents.show', $incident) }}">{{ $incident->title }} - {{ $incident->created_at }}</a></h5>
+                            <h5><a href="{{ route('incidents.show', $incident) }}" id="incident-title">{{ $incident->title }} - {{ $incident->created_at }}</a></h5>
                         </li>
                         @endauth
                         @else
                         <li class="list-group-item">
-                            <h5><a href="{{ route('incidents.show', $incident) }}">{{ $incident->title }} - {{ $incident->created_at }}</a></h5>
+                            <h5><a href="{{ route('incidents.show', $incident) }}" id="incident-title">{{ $incident->title }} - {{ $incident->created_at }}</a></h5>
                         </li>
                         @endif
                         @empty
-                        <p>No hay incidencias disponibles.</p> <!-- Agregar este mensaje si no hay incidencias asociadas -->
+                        <p id="incident-title">No hay incidencias disponibles.</p> <!-- Agregar este mensaje si no hay incidencias asociadas -->
                         
                         @endforelse
                     </ul>
@@ -48,7 +47,7 @@
             </div>
         </li>
         @empty
-        <li class="list-group-item">No hay categorías disponibles.</li>
+        <li class="list-group-item" id="incident-title">No hay categorías disponibles.</li>
         @endforelse
     </ul>
 </div>

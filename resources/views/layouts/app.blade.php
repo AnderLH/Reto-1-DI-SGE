@@ -18,51 +18,26 @@
 </head>
 <body id="depart-styles">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm custom-navbar" id="navbar">
             <div class="container">
             
-                <a class="navbar-brand" href="{{ url('/incidents') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('name', 'Home') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!--
                 <a class="navbar-brand" href="{{ url('/incidents') }}">
-                    {{ config('name', 'Incidencias') }}
+                    {{ config('name', 'Incidents') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <a class="navbar-brand" href="{{ url('/comments') }}">
-                    {{ config('name', 'Comentarios') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                -->
-
                 <a class="navbar-brand" href="{{ url('/categories') }}">
                     {{ config('name', 'Categorias') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <a class="navbar-brand" href="{{ url('/departaments') }}">
                     {{ config('name', 'Departamentos') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <a class="navbar-brand" href="{{ url('/statuses') }}">
                     {{ config('name', 'Estados') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <a class="navbar-brand" href="{{ url('/priorities') }}">
                     {{ config('name', 'Prioridad') }}
@@ -122,8 +97,7 @@
         </main>
 
         <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-            <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" data-bs-toggle="dropdown" aria-label="Toggle theme (dark)">
-                <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="btnSwitch" type="button" data-bs-toggle="dropdown" aria-label="Toggle theme (dark)">
                 <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">

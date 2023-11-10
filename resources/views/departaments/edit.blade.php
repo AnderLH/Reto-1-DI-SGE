@@ -6,8 +6,8 @@
         @csrf 
         @method('PUT')
         <div class="form-group mb-3"> 
-            <label for="titulo"
-            class="form-label">Titulo</label>
+            <label for="name"
+            class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="name" required value="{{$departament->name}}"/>
         </div>
         <button type="submit" class="btn btn-primary" name="">Actualizar</button>
