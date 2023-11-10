@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('departament_id');
-            $table->foreign('departament_id')->references('id')->on('departaments');
+            $table->foreign('departament_id')->references('id')->on('departaments')->onDelete('restrict');
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->unsignedBigInteger('priority_id');
