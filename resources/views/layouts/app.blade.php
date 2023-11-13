@@ -25,7 +25,7 @@
                     {{ config('name', 'Home') }}
                 </a>
                 <a class="navbar-brand" href="{{ url('/incidents') }}">
-                    {{ config('name', 'Incidents') }}
+                    {{ config('name', 'Incidencias') }}
                 </a>
                 <a class="navbar-brand" href="{{ url('/categories') }}">
                     {{ config('name', 'Categorias') }}

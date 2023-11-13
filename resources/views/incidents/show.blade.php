@@ -24,19 +24,19 @@
     </div>
 
     <!-- Sección de comentarios -->
-
+@auth
     <div class="comments">
         <h2>Comentarios</h2>
         <ul class="list-group">
             @forelse ($incident->comments as $comment)
-                @if ($comment->incident_id === $incident->id)
+                @if ($comment->incident_id == $incident->id)
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <div>
                             <strong>{{ $comment->user->name }}:</strong>
                             {{ $comment->text }}
                         </div>
                         @auth
-                        @if ($comment->user->id === auth()->user()->id)
+                        @if ($incident->user->id == auth()->user()->id )
                         <div>
                             <form action="{{ route('comments.edit', $comment) }}" method="GET" style="display: inline;">
                                 @csrf
@@ -72,5 +72,6 @@
         </div>
         @endauth
     </div>
+    @endauth
 </div>
 @endsection

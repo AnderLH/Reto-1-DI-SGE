@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form class="mt-2" name="create_platform" action="{{route('statues.update',$status)}}" method="POST"
+    <form class="mt-2" name="create_platform" action="{{route('statuses.update',$status)}}" method="POST"
         enctype="multipart/form-data">
         @csrf 
         @method('PUT')
