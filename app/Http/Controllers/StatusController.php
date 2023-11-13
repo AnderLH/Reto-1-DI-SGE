@@ -22,8 +22,6 @@ class StatusController extends Controller
     public function create()
     {
         return view('statuses.create');
-        
-        //
     }
 
     /**
@@ -31,9 +29,14 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
         $status = new Status();
-        $status->name = $request->titulo;
+        $status->name = $request->name;
         $status->save();
+
         return redirect()->route('statuses.index');
     }
 
@@ -59,7 +62,7 @@ class StatusController extends Controller
      */
     public function update(Request $request, Status $status)
     {
-        $status->name = $request->nombre;
+        $status->name = $request->name;
         $status->save();
         return view('statuses.show',['status'=>$status]);
     }

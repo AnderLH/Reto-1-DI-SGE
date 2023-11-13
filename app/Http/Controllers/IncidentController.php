@@ -37,23 +37,24 @@ class IncidentController extends Controller
      */
     public function store(Request $request)
     {
-        // Obtén el departamento del usuario logueado
-        $user = auth()->user();
-
-        // Crear una nueva incidencia con el departamento del usuario logueado
         $incident = new Incident();
+
         $incident->title = $request->input('title');
         $incident->text = $request->input('text');
-        $incident->user_id = auth()->user()->id; // Asigna el ID del usuario actual
-        $incident->departament_id = $user->departament->id;
+        $incident->user_id = auth()->user()->id;
+        $incident->departament_id = auth()->user()->departament_id;
         $incident->status_id = $request->input('status');
         $incident->priority_id = $request->input('priority');
         $incident->category_id = $request->input('category');
         $incident->minutes = $request->input('minutes');
-       
+    
         $incident->save();
+    
         return redirect()->route('incidents.index');
     }
+    
+    
+
 
     /**
      * Display the specified resource.

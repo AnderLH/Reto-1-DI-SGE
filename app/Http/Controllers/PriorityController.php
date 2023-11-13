@@ -70,8 +70,10 @@ class PriorityController extends Controller
      */
     public function destroy(Priority $priority)
     {
+        event(new \App\Events\PriorityDeleted($priority));
+    
         $priority->delete();
+    
         return redirect()->route('priorities.index');
-        //
     }
 }
