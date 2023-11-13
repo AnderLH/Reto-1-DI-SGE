@@ -21,9 +21,9 @@ return new class extends Migration
             $table->foreign('departament_id')->references('id')->on('departaments')->onDelete('restrict');
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses');
-            $table->unsignedBigInteger('priority_id');
+            $table->unsignedBigInteger('priority_id')->nullable();
             $table->foreign('priority_id')->references('id')->on('priorities');	
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');		
             $table->integer('minutes');
             $table->softDeletes();
