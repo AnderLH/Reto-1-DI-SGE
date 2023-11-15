@@ -22,9 +22,9 @@ return new class extends Migration
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->unsignedBigInteger('priority_id')->nullable();
-            $table->foreign('priority_id')->references('id')->on('priorities');	
+            $table->foreign('priority_id')->references('id')->on('priorities')->onDelete('set null');
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');		
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');		
             $table->integer('minutes');
             $table->softDeletes();
             $table->timestamps(); 
