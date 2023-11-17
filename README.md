@@ -1,66 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Incidencias Web
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+[![License](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](https://mit-license.org/)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este es un sistema web para la gestión de incidencias, desarrollado con Laravel y Bootstrap.
 
-## About Laravel
+## Descripción del Proyecto
+El Sistema de Incidencias Web es una aplicación diseñada para permitir a los usuarios reportar, seguir y resolver incidencias de manera eficiente. Con una interfaz intuitiva basada en Bootstrap y un backend robusto construido con Laravel, la aplicación proporciona una plataforma completa para la gestión de problemas.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Características Principales
+- :memo: Registro y autenticación de usuarios.
+- :bar_chart: Creación y seguimiento de incidencias.
+- :busts_in_silhouette: Asignación de incidencias a equipos o individuos responsables.
+- :speech_balloon: Historial de seguimiento y comentarios para cada incidencia.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologías Utilizadas
+La aplicación está construida utilizando las siguientes tecnologías:
+- **PHP**: [8.2.11]
+- **Laravel**: [10.31.0]
+- **Bootstrap**: [5.3.2]
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalación
+A continuación se describen los pasos para configurar la aplicación localmente:
+### Prerrequisitos
+Asegúrese de tener instalado lo siguiente:
 
-## Learning Laravel
+- :whale: [Docker](https://www.docker.com/)
+- :package: [Imagen de Docker](https://hub.docker.com/_/phpmyadmin)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Pasos de Instalación
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Crear el contenedor Docker con la imagen correspondiente:**
+   > Asegúrese de tener Docker instalado.
+   
+    Utilice el siguiente comando para crear el contenedor:
+     ```bash
+     docker run -d -p 3306:3306 --name phpmyadmin -e PMA_HOST=db phpmyadmin/phpmyadmin
+     
+2. **Clonar el repositorio:**
+   ```git
+   git clone https://github.com/AnderLH/Reto-1-DI-SGE.git
+3. **Ejecutar las migraciones:**
+    ```bash
+    php artisan migrate
+    
+4. **Ejecutar las semillas:**
+    ```bash
+    php artisan db:Seed DatabaseSeeder
+    
+5. **Iniciar el servidor:**
+    ```bash
+    ./vendor/bin/sail up -d
+    
+La aplicación estará disponible en el localhost.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Uso
+- :globe_with_meridians: Acceda a la aplicación a través de su navegador.
+- :key: Inicie sesión o registre una nueva cuenta.
+- :computer: Navegue por la interfaz para crear, asignar y seguir incidencias.
 
-## Laravel Sponsors
+## Documentación
+La documentación completa de la aplicación, se encuentra en el siguiente <a href="https://docs.google.com/document/d/1hRvqnwDtugAcNwjM6PoeQO0K-DOKeIddRQky6NoFnYs/edit?usp=sharing">documento</a>.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Contacto
+Para preguntas o problemas, puede ponerse en contacto con los mantenedores del proyecto:
+- :computer:  [Ander](ander.lopezdevallejohi@elorrieta-errekamari.com)
+- :computer:  [Baichun](baichun.qi@elorrieta-errekamari.com)
+## Licencia
+Distribuido bajo la [MIT license](https://opensource.org/licenses/MIT).

@@ -1,5 +1,5 @@
 #depart-styles h1{
-    color: red;
+    color: rgb(255, 174, 0);
 }
 
 .themed-container {
@@ -7,12 +7,14 @@
     margin-bottom: 1.5rem;
     background-color: rgba(112.520718, 44.062154, 249.437846, .15);
     border: 1px solid rgba(112.520718, 44.062154, 249.437846, .3);
-  }
+}
 
-/* Anulación de la propiedad --bs-bg-opacity */
 [data-bs-theme='light'] .navbar.bg-white,
 [data-bs-theme='dark'] .navbar.bg-white {
     --bs-bg-opacity: 0 !important;
+}
+[data-bs-theme='dark'] #py-4-update {
+    background-color: #2d3648;
 }
 
 #incident-title {
@@ -136,4 +138,15 @@ h1 {
 /* Estilo de los elementos del menú desplegable al pasar el ratón */
 .dropdown-item:hover {
     background-color: #f8f9fa;
+}
+
+#py-4-update {
+    background-color: #fffed8;
+    padding: 20px;
+    border-radius: 10px;
+    border: rgb(158, 150, 126);
+}
+
+#py-4-app.dark-mode {
+    background: #2d3648;
 }

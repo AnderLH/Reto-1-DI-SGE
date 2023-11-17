@@ -31,3 +31,6 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
         setTheme(themeValue);
     });
 });
+
+// Llamar a setTheme con el tema almacenado para asegurarse de que la interfaz esté actualizada
+setTheme(storedTheme);
