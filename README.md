@@ -61,7 +61,7 @@ La aplicación estará disponible en el localhost.
 - :computer: Navegue por la interfaz para crear, asignar y seguir incidencias.
 
 ## Documentación
-La documentación completa de la aplicación, se encuentra en el siguiente <a href="https://docs.google.com/document/d/1hRvqnwDtugAcNwjM6PoeQO0K-DOKeIddRQky6NoFnYs/edit?usp=sharing">documento</a>.
+La documentación completa de la aplicación, se encuentra en el siguiente <a href="https://drive.google.com/file/d/1zdx-AMu7v6q2cxPgBID53LeBSQHS4xaP/view?usp=sharing">documento</a>.
 
 ## Contacto
 Para preguntas o problemas, puede ponerse en contacto con los mantenedores del proyecto:
